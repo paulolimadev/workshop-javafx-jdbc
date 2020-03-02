@@ -28,13 +28,12 @@ public class MainViewController implements Initializable {
 	
 	@FXML
 	private MenuItem menuItemAbout;
-	
-	
+
 	@FXML
 	public void onMenuItemSellerAction() {
 		System.out.println("onMenuItemSellerAction");
 	}
-	
+
 	@FXML
 	public void onMenuItemDepartmentAction() {
 		loadView("/gui/DepartmentList.fxml", (DepartmentListController controller) -> {
@@ -48,11 +47,8 @@ public class MainViewController implements Initializable {
 		loadView("/gui/About.fxml", x -> {});
 	}
 	
-	
 	@Override
 	public void initialize(URL uri, ResourceBundle rb) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
@@ -70,11 +66,9 @@ public class MainViewController implements Initializable {
 			
 			T controller = loader.getController();
 			initializingAction.accept(controller);
-			
-		} catch (IOException e) {
-			Alerts.showAlert("OI Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
 		}
-	}
-	
-	
+		catch (IOException e) {
+			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
+		}
+	}	
 }
