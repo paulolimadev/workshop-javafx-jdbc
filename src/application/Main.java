@@ -24,6 +24,8 @@ public class Main extends Application {
 			mainScene = new Scene(scrollPane);
 			primaryStage.setScene(mainScene);
 			primaryStage.setTitle("Sample JavaFX application");
+			//https://code.makery.ch/pt/library/javafx-tutorial/part4/
+			//primaryStage.getIcons().add(new Image("file:resources/images/address_book_32.png"));
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
